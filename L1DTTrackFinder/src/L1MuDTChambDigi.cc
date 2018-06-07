@@ -35,44 +35,45 @@ using namespace std;
 //----------------
 L1MuDTChambDigi::L1MuDTChambDigi() {
 
-  bx              = -100;
-  wheel           = 0;
-  sector          = 0;
-  station         = 0;
-  radialAngle     = 0;
-  bendingAngle    = 0;
-  zcoordinate     = 0;
+  m_bx              = -100;
+  m_wheel           = 0;
+  m_sector          = 0;
+  m_station         = 0;
+  m_phiAngle        = 0;
+  m_phiBending      = 0;
+  m_zCoordinate     = 0;
+  m_zSlope          = 0;
 
-  qualityCode     = 7;
-  Ts2TagCode      = 0;
-  BxCntCode       = 0;
+  m_qualityCode     = 7;
+  m_segmentIndex    = 0;
 
-  t0seg           = 0;
-  chi2seg         = 0;
+  m_t0Segment       = 0;
+  m_chi2Segment     = 0;
 
-  rpcBit          = -10;
+  m_rpcBit          = -10;
 }
 
-L1MuDTChambDigi::L1MuDTChambDigi( int ubx, int uwh, int usc, int ust,
-				  int uphr, int uphb, int uz, int uqua, int utag, int ucnt, 
-				  int ut0, int uchi2, int urpc ) {
-  
-  bx              = ubx;
-  wheel           = uwh;
-  sector          = usc;
-  station         = ust;
-  radialAngle     = uphr;
-  bendingAngle    = uphb;
-  zcoordinate     = uz;
 
-  qualityCode     = uqua;
-  Ts2TagCode      = utag;
-  BxCntCode       = ucnt;
+L1MuDTChambDigi::L1MuDTChambDigi( int ubx,  int uwh, int usc, int ust, int uphi, int uphib, int uz, int uzsl,
+				  int uqua, int uind, int ut0, int uchi2, int urpc)
+{
+ 
+  m_bx             = ubx;
+  m_wheel          = uwh;
+  m_sector         = usc;
+  m_station        = ust;
+  m_phiAngle       = uphi;
+  m_phiBending     = uphib;
+  m_zCoordinate    = uz;
+  m_zSlope         = uzsl;
 
-  t0seg           = ut0;
-  chi2seg         = uchi2;
+  m_qualityCode    = uqua;
+  m_segmentIndex   = uind;
+ 
+  m_t0Segment      = ut0;
+  m_chi2Segment    = uchi2;
 
-  rpcBit          = urpc;
+  m_rpcBit         = urpc;
 }
 
 
@@ -87,55 +88,51 @@ L1MuDTChambDigi::~L1MuDTChambDigi() {
 // Operations --
 //--------------
 int L1MuDTChambDigi::bxNum() const {
-  return bx;
+  return m_bx;
 }
 
 int L1MuDTChambDigi::whNum() const {
-  return wheel;
+  return m_wheel;
 }
 int L1MuDTChambDigi::scNum() const {
-  return sector;
+  return m_sector;
 }
 int L1MuDTChambDigi::stNum() const {
-  return station;
+  return m_station;
 }
 
 int L1MuDTChambDigi::phi() const {
-  return radialAngle;
+  return m_phiAngle;
 }
 
-int L1MuDTChambDigi::phiB() const {
-  return bendingAngle;
+int L1MuDTChambDigi::phiBend() const {
+  return m_phiBending;
 }
 
 int L1MuDTChambDigi::z() const {
-  return zcoordinate;
+  return m_zCoordinate;
+}
+
+int L1MuDTChambDigi::zSlope() const {
+  return m_zSlope;
 }
 
 int L1MuDTChambDigi::quality() const {
-  return qualityCode;
+  return m_qualityCode;
 }
 
-int L1MuDTChambDigi::Ts2Tag() const {
-  return Ts2TagCode%2;
-}
-
-int L1MuDTChambDigi::BxCnt() const {
-  return BxCntCode;
-}
-
-int L1MuDTChambDigi::UpDownTag()	const{
-  return Ts2TagCode/2 ;
+int L1MuDTChambDigi::index() const{
+  return m_segmentIndex;
 }
 
 int L1MuDTChambDigi::t0() const {
-  return t0seg;
+  return m_t0Segment;
 }
 
 int L1MuDTChambDigi::chi2() const {
-  return chi2seg;
+  return m_chi2Segment;
 }
 
-int L1MuDTChambDigi::RpcBit() const {
-  return rpcBit;
+int L1MuDTChambDigi::rpcBit() const {
+  return m_rpcBit;
 }

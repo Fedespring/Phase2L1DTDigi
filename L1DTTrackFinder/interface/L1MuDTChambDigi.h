@@ -38,10 +38,9 @@ class L1MuDTChambDigi {
   //  Constructors
   L1MuDTChambDigi();
 
-  L1MuDTChambDigi( int ubx, int uwh, int usc, int ust,
-		   int uphr, int uphb, int uz, int uqua, int utag, int ucnt, 
-		   int ut0, int uchi2, int urpc=-10);
-
+  L1MuDTChambDigi( int ubx,  int uwh, int usc, int ust, int uphi, int uphib, int uz,  int uzsl,
+		   int uqua, int uind, int ut0, int uchi2, int urpc=-10);
+  
   //  Destructor
   ~L1MuDTChambDigi();
 
@@ -51,39 +50,37 @@ class L1MuDTChambDigi {
   int scNum()       const;
   int stNum()       const;
   int phi()         const;
-  int phiB()        const;
+  int phiBend()     const;
   int z()           const;
+  int zSlope()      const;
 
   int quality()     const;
-  int Ts2Tag()      const;
-  int BxCnt()       const;
-  int RpcBit()      const;
-  int UpDownTag()   const;
-
+  int index()       const;
+   
   int t0()          const;
   int chi2()        const;
 
-
+  int rpcBit()      const;
   
 
  private:
 
-  int bx;
-  int wheel;
-  int sector;
-  int station;
-  int radialAngle;
-  int bendingAngle;
-  int zcoordinate;
+  int m_bx;
+  int m_wheel;
+  int m_sector;
+  int m_station;
+  int m_phiAngle;
+  int m_phiBending;
+  int m_zCoordinate;
+  int m_zSlope;
 
-  int qualityCode;
-  int Ts2TagCode;
-  int BxCntCode;
-
-  int t0seg;
-  int chi2seg;
+  int m_qualityCode;
+  int m_segmentIndex;
   
-  int rpcBit;
+  int m_t0Segment;
+  int m_chi2Segment;
+  
+  int m_rpcBit;
 };
 
 #endif
