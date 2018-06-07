@@ -60,7 +60,7 @@ class L1MuDTChambDigi {
   int t0()          const;
   int chi2()        const;
 
-  int rpcBit()      const;
+  int rpcFlag()      const;
   
 
  private:
@@ -80,7 +80,7 @@ class L1MuDTChambDigi {
   int m_t0Segment;
   int m_chi2Segment;
   
-  int m_rpcBit;
+  int m_rpcFlag;
 };
 
 #endif

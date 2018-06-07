@@ -50,7 +50,7 @@ L1MuDTChambDigi::L1MuDTChambDigi() {
   m_t0Segment       = 0;
   m_chi2Segment     = 0;
 
-  m_rpcBit          = -10;
+  m_rpcFlag          = -10;
 }
 
 
@@ -73,7 +73,7 @@ L1MuDTChambDigi::L1MuDTChambDigi( int ubx,  int uwh, int usc, int ust, int uphi,
   m_t0Segment      = ut0;
   m_chi2Segment    = uchi2;
 
-  m_rpcBit         = urpc;
+  m_rpcFlag         = urpc;
 }
 
 
@@ -133,6 +133,6 @@ int L1MuDTChambDigi::chi2() const {
   return m_chi2Segment;
 }
 
-int L1MuDTChambDigi::rpcBit() const {
-  return m_rpcBit;
+int L1MuDTChambDigi::rpcFlag() const {
+  return m_rpcFlag;
 }
